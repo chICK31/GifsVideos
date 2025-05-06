@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel GIF Viewer</title>
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    img {
+      image-rendering: pixelated;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <img id="pixel-gif" src="" alt="Pixel GIF">
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const gifUrl = params.get('gif');
+    if (gifUrl) {
+      document.getElementById('pixel-gif').src = gifUrl;
+    } else {
+      document.body.innerHTML = "<h2 style='color:white;'>No GIF URL provided</h2>";
+    }
+  </script>
+</body>
+</html>
